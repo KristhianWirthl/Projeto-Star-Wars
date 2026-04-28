@@ -250,98 +250,98 @@
     function verificar2(){
         if (clicou2 == false){
         pontuacao++;
-        clicou = true;
+        clicou2 = true;
         }
     }
 
     function verificar3(){
         if (clicou3 == false){
         pontuacao++;
-        clicou = true;
+        clicou3 = true;
         }
     }
 
     function verificar4(){
         if (clicou4 == false){
         pontuacao++;
-        clicou = true;
+        clicou4 = true;
         }
     }
 
     function verificar5(){
         if (clicou5 == false){
         pontuacao++;
-        clicou = true;
+        clicou5 = true;
         }
     }
 
     function verificar6(){
         if (clicou6 == false){
         pontuacao++;
-        clicou = true;
+        clicou6 = true;
         }
     }
 
     function verificar7(){
         if (clicou7 == false){
         pontuacao++;
-        clicou = true;
+        clicou7 = true;
         }
     }
 
     function verificar8(){
         if (clicou8 == false){
         pontuacao++;
-        clicou = true;
+        clicou8 = true;
         }
     }
 
     function verificar9(){
         if (clicou9 == false){
         pontuacao++;
-        clicou = true;
+        clicou9 = true;
         }
     }
 
     function verificar10(){
         if (clicou10 == false){
         pontuacao++;
-        clicou = true;
+        clicou10 = true;
         }
     }
 
     function verificar11(){
         if (clicou11 == false){
         pontuacao++;
-        clicou = true;
+        clicou11 = true;
         }
     }
 
     function verificar12(){
         if (clicou12 == false){
         pontuacao++;
-        clicou = true;
+        clicou12 = true;
         }
     }
 
     function verificar13(){
         if (clicou13 == false){
         pontuacao++;
-        clicou = true;
+        clicou13 = true;
         }
     }
 
     function verificar14(){
         if (clicou14 == false){
         pontuacao++;
-        clicou = true;
+        clicou14 = true;
         }
     }
 
     function verificar15(){
         if (clicou15 == false){
         pontuacao++;
-        clicou = true;
+        clicou15 = true;
         }
     }
 
@@ -360,8 +360,19 @@
             mensagem = `Sem Midichlorianos`;
         }
         div_mensagem.innerHTML = mensagem + `- ${pontuacao}`;;
-        lista.push(mensagem);
+        lista.push(mensagem, pontuacao);
 
     } 
+
+    function registar(){
+        fetch("/usuarios/adicionar",{
+        method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+            })
+    })}
+
 
 </script>

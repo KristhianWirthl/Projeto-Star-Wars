@@ -10,8 +10,7 @@ CREATE TABLE usuario (
     especie VARCHAR(100),
     nave VARCHAR(50),
     email VARCHAR(50),
-    senha VARCHAR(50),
-    confirmar_senha VARCHAR(50)
+    senha VARCHAR(50)
 );
 
 CREATE TABLE ranking (
@@ -21,3 +20,4 @@ CREATE TABLE ranking (
     CONSTRAINT constusuario FOREIGN KEY (fkusuario) REFERENCES usuario(id)
 );
 
+SELECT COUNT(classificacao) FROM ranking group by classificacao;

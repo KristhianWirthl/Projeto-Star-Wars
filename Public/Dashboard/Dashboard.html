@@ -24,11 +24,11 @@
 
         <div class="dashboard">
             <div class="kpis-container">
-                <div class ="kpis"><p>2026</p></div>
+                <p class ="kpis">Mestre-Jedi</p>
                     <!-- colocar 1 de pontuação e outro classificação  --> 
-                    <div class ="kpis"><p>2026 </p></div>
+                <p class ="kpis">11</p>
             </div>
-                <div class="grafico">
+            <div class="grafico">
                 <canvas id="Ranking"></canvas>
             </div>
         </div>
@@ -56,6 +56,7 @@
                     labels:labels,
                     datasets: [{
                         label: 'Quantidade de usuários por Ranking',
+                        // label: trazerinformaçõestotal(),
                         data: lista,
                         backgroundColor: [
                             '#A9B4C2',

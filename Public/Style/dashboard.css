@@ -2,40 +2,43 @@
 
 
  .dashboard{
-    background-color: #1fe6e6;
+    border: 1px solid #f6ff00;
+    border-radius: 3px;
+    box-shadow: 10px 10px 100px 10px #48bcffbb;
     display: flex;
-    width: 1400px;
-    height: auto;
+    width: 1200px;
+    height: 1000px;
     margin: 90px auto;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 } 
 
  .grafico{
-    width: 1360px;
+    width: 1160px;
     height: 700px;
+    border-top: 3px solid #f6ff00;
     display: flex;
-    background-color: #cdd4df;
+    background-color: #e6f9ff;
     padding: 20px;
-    align-items: end;
-    margin-top: 450px;
+    margin-top: 60px;
 } 
 
  .kpis{
     display: flex;
-    background-color: #ffffff;
+    background-color: #f6ff00;
+    color: #000000;
     align-items: center;
     justify-content: center;
     width: 80px;
     height: 80px;
     padding: 40px;
     margin: 40px;
-    margin-bottom: 1000px;
 }
 
 .kpis-container{
     display: flex;
-    row-gap: 20px;
+    gap: 200px;
 } 
 
 /* * {

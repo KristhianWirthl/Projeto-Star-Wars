@@ -52,6 +52,17 @@
 
 <script>
 
+  function limparFormulario(){
+    nome_input.value = "";
+    idade_input.value = "";
+    planeta_origem_input.value = "";
+    especie_input.value = "";
+    nave_input.value = "";
+    email_input.value = "";
+    senha_input.value = "";
+    confirmar_senha_input.value = "";
+  }
+
   function cadastrar() {
 
     console.log("Chamei a função")
@@ -67,7 +78,7 @@
     var senhaVar = senha_input.value;
     var confirmarSenhaVar = confirmar_senha_input.value;
 
-    console.log(`Dados que vou capurar: ${nomeVar}, ${idadeVar}, ${planetaVar}, ${especieVar}, ${naveVar}, ${emailVar}, ${senhaVar}, ${confirmarSenhaVar}`)
+    console.log(`Dados que vou capurar: ${nomeVar}, ${idadeVar}, ${planetaVar}, ${especieVar}, ${naveVar}, ${emailVar}, ${senhaVar}`)
 
     // Verificando se há algum campo em branco
     if (
@@ -78,17 +89,20 @@
       naveVar == "" ||
       emailVar == "" ||
       senhaVar == "" ||
-      confirmarSenhaVar == "" 
+      confirmarSenhaVar == "" ||
+      senhaVar != confirmarSenhaVar
     ) {
-      cardErro.style.display = "block";
+      // cardErro.style.display = "block";
       // mensagem_erro.innerHTML =
       //   "(Alerta, robô detectado, por favor preencha corretamente)";
 
       console.log("Campos Vazios")
-
+      limparFormulario();
+      alert("Algum erro foi detectado!")
       //finalizarAguardar();
       //return false;
-    }
+    }else{
+
 
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
@@ -105,24 +119,20 @@
         especieServer: especieVar,
         naveServer: naveVar,
         emailServer: emailVar,
-        senhaServer: senhaVar,
-        confirmarSenhaServer: confirmarSenhaVar
+        senhaServer: senhaVar
       }),
     })
       .then(function (resposta) {
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-          cardErro.style.display = "block";
-
-          mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+          alert("Cadastrado com sucesso")
 
           setTimeout(() => {
-            window.location = "login.html";
+            window.location = "Login.html";
           }, "2000");
 
-          //limparFormulario();
+          limparFormulario();
           //finalizarAguardar();
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";
@@ -132,8 +142,8 @@
         console.log(`#ERRO: ${resposta}`);
         //finalizarAguardar();
       });
-
+      
     return false;
   }
-
+  }
 </script>

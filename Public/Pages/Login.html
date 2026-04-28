@@ -30,7 +30,7 @@
             <div class="inputs">
                 <audio id="musica" src="../Sounds/Copyright Free Star Wars Music - The Path of the Force.mp3" autoplay loop></audio>
                 <input type="text" id="email_input" placeholder="Email"><br>
-                <input password="text" id="senha_input" placeholder="Senha"><br>
+                <input type="password" id="senha_input" placeholder="Senha"><br>
             </div>
             <button onclick="entrar()">Cadastrar</button>
         </div>
@@ -46,6 +46,10 @@
 
 <script>
 
+    function limparFormulario(){
+    email_input.value = "";
+    senha_input.value = "";
+  }
 
     function entrar() {
         //aguardar();
@@ -80,7 +84,7 @@
             console.log("ESTOU NO THEN DO entrar()!")
 
             if (resposta.ok) {
-                console.log(resposta);
+                alert("Login realizado com sucesso");
 
                 resposta.json().then(json => {
                     console.log(json);
@@ -89,15 +93,18 @@
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.id;
 
+                    limparFormulario();
                     setTimeout(function () {
-                        window.location = "../Dashboard/Dashboard.html";
+                        window.location = "./StarWars.html";
                     }, 1000); // apenas para exibir o loading
-
+                    
                 });
 
             } else {
 
-                console.log("Houve um erro ao tentar realizar o login!");
+                limparFormulario();
+
+                alert("Houve um erro ao tentar realizar o login!");
 
                 resposta.text().then(texto => {
                     console.error(texto);
@@ -115,5 +122,13 @@
     // function sumirMensagem() {
     //     cardErro.style.display = "none"
     // }
+
+    
+        function logout(){
+            if (autenticar){
+            sessionStorage.clear();
+            window.location.href = "./Login.html"
+        }
+    }
 
 </script>

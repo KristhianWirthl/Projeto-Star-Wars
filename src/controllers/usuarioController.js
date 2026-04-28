@@ -27,7 +27,6 @@ function autenticar(req, res) {
                                         nave: resultadoAutenticar[0].nave,
                                         email: resultadoAutenticar[0].email,                                       
                                         senha: resultadoAutenticar[0].senha,
-                                        confirmarsenha: resultadoAutenticar[0].confirmarsenha,
                                     });
                             } else if (resultadoAutenticar.length == 0) {
                         res.status(403).send("Email e/ou senha inválido(s)");
@@ -57,9 +56,8 @@ function cadastrar(req, res) {
     var nave = req.body.naveServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
-    var confirmarSenha = req.body.confirmarSenhaServer;
 
-    console.log(`Dados a serem cadastrados: ${nome}, ${idade}, ${planeta}, ${especie}, ${nave}, ${email}, ${senha}, ${confirmarSenha}`)
+    console.log(`Dados a serem cadastrados: ${nome}, ${idade}, ${planeta}, ${especie}, ${nave}, ${email}, ${senha}`)
 
     // Faça as validações dos valores
     if (nome == undefined) {
@@ -76,13 +74,13 @@ function cadastrar(req, res) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
-    } else if (confirmarSenha == undefined) {
-        res.status(400).send("Sua confirmação de senha está undefined!");
     } else if (nome.length <= 1){
         res.status(400).send("Nome inválido!");
-    }else{
+    } else{
+
+    
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, idade, planeta, especie, nave, email, senha, confirmarSenha)
+        usuarioModel.cadastrar(nome, idade, planeta, especie, nave, email, senha)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -100,7 +98,32 @@ function cadastrar(req, res) {
     }
 }
 
+function adicionar(req, res){
+    
+    
+    var classificacao = req.body.classificacaoServer;
+    var pontuacao = req.body.pontuacaoServer;
+    var fkusuario = req.body.fkusuarioServer;
+
+        usuarioModel.adicionar(classificacao, pontuacao, fkusuario)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao adicionar o resultado do quiz! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }        
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    adicionar
 }
