@@ -24,6 +24,7 @@
 
     <div class="container-pergunta">
         <h3>1. Qual a cor do sabre de luz de Luke Skywalker no primeiro filme</h3>
+        <img src="../Images/SabresdeLuz.webp" style="width: 400px; height: auto">
         <div>
             <div class="container-opcao">
                 <button class="botao-opcao">Vermelho</button>
@@ -36,6 +37,7 @@
 
     <div class="container-pergunta">
         <h3>2. Quem construiu C-3PO</h3>
+        <img src="../Images/C3P0.webp" style="width: 300px; height: auto">
         <div>
             <div class="container-opcao">
                 <button class="botao-opcao">Han Solo</button>
@@ -48,6 +50,7 @@
 
     <div class="container-pergunta">
         <h3>3. Onde Yoda viveu durante seu exílio</h3>
+        <img src="../Images/Yoda jovem.jpg" style="width: 400px; height: auto">
         <div>
             <div class="container-opcao">
                 <button class="botao-opcao">Tatooine</button>
@@ -60,6 +63,7 @@
 
     <div class="container-pergunta">
         <h3>4. Qual o nome da nave que Han Solo ganhou durante uma aposta de Lando Calrissian</h3>
+        <img src="../Images/Millennium Falcon.webp" style="width: 450px; height: auto">
         <div>
             <div class="container-opcao">
                 <button class="botao-opcao">Slave 1</button>
@@ -72,6 +76,7 @@
 
     <div class="container-pergunta">
         <h3>5. Quem disse a frase "Eu sou seu pai"</h3>
+        <img src="../Images/Luke no.gif" style="width: 450px; height: auto">
         <div>
             <div class="container-opcao">
                 <button class="botao-opcao">Imperador Palpatine</button>
@@ -84,6 +89,7 @@
 
     <div class="container-pergunta">
         <h3>6. Qual o nome do personagem entitulado como "Baby yoda"</h3>
+        <img src="../Images/Baby Yoda comendo sapo.jpg" style="width: 350px; height: auto">
         <div>
             <div class="container-opcao">
                 <button class="botao-opcao">Din Djarin</button>
@@ -96,6 +102,7 @@
 
     <div class="container-pergunta">
         <h3>7. Quem foi o mestre Jedi que treinou Qui Gon Jin</h3>
+        <img src="../Images/Qui Gon Jin.webp" style="width: 350px; height: auto">
         <div>
             <div class="container-opcao">
                 <button class="botao-opcao">Obi Wan Kenobi</button>
@@ -108,6 +115,7 @@
 
     <div class="container-pergunta">
         <h3>8. Qual nome da espécie do Chewie</h3>
+        <img src="../Images/Chewie.jpg" style="width: 350px; height: auto">
         <div>
             <div class="container-opcao">
                 <button class="botao-opcao"onclick="verificar8()">Wookie</button>
@@ -120,18 +128,20 @@
 
     <div class="container-pergunta">
         <h3>9. Quantos anos Yoda tinha quando morreu</h3>
+        <img src="../Images/Yoda.webp" style="width: 350px; height: auto">
         <div>
             <div class="container-opcao">
                 <button class="botao-opcao">800</button>
                 <button class="botao-opcao"onclick="verificar9()">900</button>
                 <button class="botao-opcao">1000</button>
-                <button class="botao-opcao">1100</button>
+                <button class="botao-opcao">Ele não morreu</button>
             </div>
         </div>
     </div>
 
     <div class="container-pergunta">
         <h3>10. Qual o código do capitão Rex</h3>
+        <img src="../Images/Captain Rex.png" style="width: 320px; height: auto">
         <div>
             <div class="container-opcao">
                 <button class="botao-opcao">CT-27-5555</button>
@@ -144,6 +154,7 @@
 
     <div class="container-pergunta">
         <h3>11. Qual a forma de combate de sabre de luz do Mace Windu</h3>
+        <img src="../Images/Mace Windu.png" style="width: 250px; height: auto">
         <div>
             <div class="container-opcao">
                 <button class="botao-opcao">Forma 3 (Soresu)</button>
@@ -156,6 +167,7 @@
 
     <div class="container-pergunta">
         <h3>12. Qual o nome da criatura encontrada no compactador de lixo da estrela da morte</h3>
+        <img src="../Images/Dianoga.webp" style="width: 300px; height: auto">
         <div>
             <div class="container-opcao">
                 <button class="botao-opcao" onclick="verificar12()">Dianoga</button>
@@ -168,6 +180,7 @@
 
     <div class="container-pergunta">
         <h3>13. Qual o nome raro usado na armadura dos mandalorianos</h3>
+        <img src="../Images/Mandalorian.jpg" style="width: 200px; height: auto">
         <div>
             <div class="container-opcao">
                 <button class="botao-opcao">Durastell</button>
@@ -180,6 +193,7 @@
 
     <div class="container-pergunta">
         <h3>14. Qual o clone que tentou matar Obi Wan Kenobi assim que começou a  Ordem 66</h3>
+        <img src="../Images/Cody.avif" style="width: 400px; height: auto">
         <div>
             <div class="container-opcao">
                 <button class="botao-opcao">Rex</button>
@@ -192,6 +206,7 @@
 
     <div class="container-pergunta">
         <h3>15. Qual o nome da nave estelar Super Star Destroyer de Darth Vader</h3>
+        <img src="../Images/Executor.webp" style="width: 400px; height: auto">
         <div>
             <div class="container-opcao">
                 <button class="botao-opcao">Devastator</button>
@@ -223,7 +238,8 @@
     let mensagem = '';
     // let botao = document.querySelectorAll("botao-opcao");
     // let index = 0;
-    let lista = [];
+    let listaclassificacao = [];
+    let listapontuacao = [];
     let clicou = false;
     let clicou2 = false;
     let clicou3 = false;
@@ -359,20 +375,27 @@
         } else {
             mensagem = `Sem Midichlorianos`;
         }
-        div_mensagem.innerHTML = mensagem + `- ${pontuacao}`;;
-        lista.push(mensagem, pontuacao);
+        div_mensagem.innerHTML = mensagem + ` - ${pontuacao}`;;
+        listaclassificacao.push(mensagem);
+        listapontuacao.push(pontuacao);
 
-    } 
-
-    function registar(){
         fetch("/usuarios/adicionar",{
         method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
+                classificacaoServer: mensagem,
+                pontuacaoServer: pontuacao,
+                fkusuarioServer: sessionStorage.ID_USUARIO
             })
+            
+            // FALTA THEN ELSE
+
     })}
 
 
 </script>
+
+
+// Aqui já tem repetição (for e vetor) percorrer

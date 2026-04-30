@@ -25,7 +25,8 @@
     border-radius: 8px;
     padding: 12px 20px;
     text-align: center; /* Alinhamento do texto */
-    color: #E0E1DD
+    color: #E0E1DD;
+    cursor: pointer;
 }
 
 .container-resultado{
@@ -50,6 +51,7 @@
     margin: auto;
     background-color: #1D3557;
     color: #E0E1DD;
+    cursor: pointer;
 }
 
 .resultado{

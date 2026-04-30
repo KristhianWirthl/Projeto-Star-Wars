@@ -23,28 +23,32 @@ function cadastrar(nome, idade, planeta_origem, especie, nave, email, senha) {
     return database.executar(instrucaoSql);
 }
 
-    function cadastrarquiz(classificacao, pontuacao, fkusuario) {
+    function adicionar(classificacao, pontuacao, fkusuario) {
         var instrucaoSql = `
         INSERT INTO ranking (classificacao, pontuacao, fkusuario) VALUES ('${classificacao}', '${pontuacao}', '${fkusuario}');
     `;
+    return database.executar(instrucaoSql);
     }
 
-    function trazerinformações(nome, classificacao, pontuacao){
+    function trazerinformacoes(nome, classificacao, pontuacao, fkusuario){
         var instrucaoSql = `
-        SELECT usuario.nome AS Nome, ranking.classificacao AS Classificação, ranking.pontuacao AS Pontuação FROM usuario JOIN ranking ON usuario.id = ranking.fkusuario
-    `;    
+        SELECT usuario.nome AS Nome, ranking.classificacao AS Classificação, ranking.pontuacao AS Pontuação FROM usuario LEFT JOIN ranking ON usuario.id = ranking.fkusuario;
+    `;
+    return database.executar(instrucaoSql);    
     }
 
-    function trazerinformaçõestotal(classificacao){
+    function trazerinformacoestotal(classificacao){
         var instrucaoSql = `
         SELECT ranking.classificacao AS Classificação FROM ranking;
-    `;    
+    `;
+    return database.executar(instrucaoSql);
     }    
+
 
 module.exports = {
     autenticar,
     cadastrar,
-    cadastrarquiz,
-    trazerinformações,
-    trazerinformaçõestotal
+    adicionar,
+    trazerinformacoes,
+    trazerinformacoestotal
 };

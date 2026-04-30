@@ -7,6 +7,13 @@
     flex-direction: column; /*  deixar as informações alinhadas em forma de coluna */
     background-color: #313137; /*  cor de fundo de tudo */
     border-radius: 20px; /*  deixar redondo nas pontas */
-    width: 300px; /*  tamanho do container horizontalmente */
+    width: 500px; /*  tamanho do container horizontalmente */
     height: 420px; /*  tamanho do container verticalmente */
+}
+
+.containerimagem1{
+    display: flex;
+    width: 200px;
+    height: 200px;
+    background-color: aqua;
 }

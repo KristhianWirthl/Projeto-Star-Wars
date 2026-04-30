@@ -21,3 +21,4 @@ CREATE TABLE ranking (
 );
 
 SELECT COUNT(classificacao) FROM ranking group by classificacao;
+

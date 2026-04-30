@@ -109,6 +109,7 @@ function adicionar(req, res){
             .then(
                 function (resultado) {
                     res.json(resultado);
+                    console.log("Pontuação e Classificação adicionadas com sucesso")
                 }
             ).catch(
                 function (erro) {
