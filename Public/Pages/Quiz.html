@@ -379,7 +379,7 @@
         listaclassificacao.push(mensagem);
         listapontuacao.push(pontuacao);
 
-        fetch("/usuarios/adicionar",{
+        fetch("/usuarios/implementar",{
         method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -392,7 +392,25 @@
             
             // FALTA THEN ELSE
 
-    })}
+    }).then(function (resposta) {
+        console.log("Peguei a resposta do quiz")
+
+        if(resposta.ok){
+            alert("Resposta do Quiz salva no banco de dados");
+        }else{
+            alert("Resposta do Quiz não salva no banco de dados");
+        }
+
+    }
+
+
+    ).catch(function (erro) {
+            console.log(erro);
+            alert("Erro na resposta do Quiz")
+        })
+
+
+}
 
 
 </script>

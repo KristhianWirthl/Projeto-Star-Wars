@@ -98,14 +98,14 @@ function cadastrar(req, res) {
     }
 }
 
-function adicionar(req, res){
+function implementar(req, res){
     
     
     var classificacao = req.body.classificacaoServer;
     var pontuacao = req.body.pontuacaoServer;
     var fkusuario = req.body.fkusuarioServer;
 
-        usuarioModel.adicionar(classificacao, pontuacao, fkusuario)
+        usuarioModel.implementar(classificacao, pontuacao, fkusuario)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -126,5 +126,5 @@ function adicionar(req, res){
 module.exports = {
     autenticar,
     cadastrar,
-    adicionar
+    implementar
 }

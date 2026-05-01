@@ -23,7 +23,7 @@ function cadastrar(nome, idade, planeta_origem, especie, nave, email, senha) {
     return database.executar(instrucaoSql);
 }
 
-    function adicionar(classificacao, pontuacao, fkusuario) {
+    function implementar(classificacao, pontuacao, fkusuario) {
         var instrucaoSql = `
         INSERT INTO ranking (classificacao, pontuacao, fkusuario) VALUES ('${classificacao}', '${pontuacao}', '${fkusuario}');
     `;
@@ -48,7 +48,7 @@ function cadastrar(nome, idade, planeta_origem, especie, nave, email, senha) {
 module.exports = {
     autenticar,
     cadastrar,
-    adicionar,
+    implementar,
     trazerinformacoes,
     trazerinformacoestotal
 };

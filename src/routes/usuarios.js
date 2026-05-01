@@ -12,8 +12,8 @@ router.post("/autenticar", function (req, res) {
     usuarioController.autenticar(req, res);
 });
 
-router.post("/adicionar", function (req, res) {
-    usuarioController.adicionar(req, res);
+router.post("/implementar", function (req, res) {
+    usuarioController.implementar(req, res);
 })
 
 
