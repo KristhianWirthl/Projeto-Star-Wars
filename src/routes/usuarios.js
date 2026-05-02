@@ -14,7 +14,11 @@ router.post("/autenticar", function (req, res) {
 
 router.post("/implementar", function (req, res) {
     usuarioController.implementar(req, res);
-})
+});
+
+router.get("/ranking", function (req, res) {
+    usuarioController.ranking(req, res);
+});
 
 
 module.exports = router;

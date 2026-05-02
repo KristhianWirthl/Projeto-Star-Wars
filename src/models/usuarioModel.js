@@ -30,16 +30,16 @@ function cadastrar(nome, idade, planeta_origem, especie, nave, email, senha) {
     return database.executar(instrucaoSql);
     }
 
-    function trazerinformacoes(nome, classificacao, pontuacao, fkusuario){
+    function trazerinformacoesusuario(nome, classificacao, pontuacao, fkusuario){
         var instrucaoSql = `
-        SELECT usuario.nome AS Nome, ranking.classificacao AS Classificação, ranking.pontuacao AS Pontuação FROM usuario LEFT JOIN ranking ON usuario.id = ranking.fkusuario;
+         SELECT  pontuacao AS Pontuação, classificacao AS Classificação FROM ranking WHERE fkusuario = ${fkusuario} ORDER BY pontuacao DESC LIMIT 1;
     `;
     return database.executar(instrucaoSql);    
     }
 
     function trazerinformacoestotal(classificacao){
         var instrucaoSql = `
-        SELECT ranking.classificacao AS Classificação FROM ranking;
+        SELECT COUNT(classificacao) FROM ranking GROUP BY classificacao;
     `;
     return database.executar(instrucaoSql);
     }    
@@ -49,6 +49,6 @@ module.exports = {
     autenticar,
     cadastrar,
     implementar,
-    trazerinformacoes,
+    trazerinformacoesusuario,
     trazerinformacoestotal
 };

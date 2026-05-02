@@ -121,10 +121,78 @@ function implementar(req, res){
                     res.status(500).json(erro.sqlMessage);
                 }
             );
-    }        
+    }
+    
+    
+    function ranking(req, res){
+    
+        usuarioModel.ranking(classificacao, pontuacao)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                    alert("Foi adicionado na dashboard");
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    alert("Não foi adicionado na dashboard");   
+                    console.log(
+                        "\nHouve um erro ao adicionar na dashboard! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }  
+    
+        function rankingindicla(req, res){
+    
+        usuarioModel.rankingindicla(classificacao)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                    alert("Foi adicionado na dashboard a classificação individual");
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    alert("Não foi adicionado na dashboard a classificação individual");   
+                    console.log(
+                        "\nHouve um erro ao adicionar na dashboard a classificação individual! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    } 
+
+        function rankingindipontu(req, res){
+    
+        usuarioModel.rankingindipontu(pontuacao)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                    alert("Foi adicionado na dashboard a pontuação individual");
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    alert("Não foi adicionado na dashboard a pontuação individual");   
+                    console.log(
+                        "\nHouve um erro ao adicionar na dashboard a pontuação individual! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    } 
+
 
 module.exports = {
     autenticar,
     cadastrar,
-    implementar
+    implementar,
+    ranking,
+    rankingindicla,
+    rankingindipontu
 }
