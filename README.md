@@ -9,6 +9,7 @@ Um projeto acadêmico pensado para desenvolver minhas técnicas aprendidas em au
 No website é possível:
 
 Conhecer um pouco sobre o universo de Star Wars;
+
 Fazer um Cadastro e Login;
 Responder um Quiz para testar seus conhecimentos;
 Entender a ordem cronológica do universo com uma Timeline;
