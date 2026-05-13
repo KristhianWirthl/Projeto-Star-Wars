@@ -15,9 +15,9 @@ var database = require("../database/config")
     return database.executar(instrucaoSql);    
     }
 
-    function trazerinformacoestotal(classificacao){
+    function trazerinformacoestotal(){
         var instrucaoSql = `
-        SELECT COUNT(classificacao) FROM ranking GROUP BY classificacao;
+        SELECT classificacao, COUNT(*) as Total FROM ranking GROUP BY classificacao;
     `;
     return database.executar(instrucaoSql);
     }    

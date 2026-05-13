@@ -28,7 +28,7 @@ function implementar(req, res){
     
     function ranking(req, res){
     
-        quizModel.ranking(classificacao, pontuacao)
+        quizModel.trazerinformacoestotal(classificacao, pontuacao)
             .then(
                 function (resultado) {
                     res.json(resultado);
