@@ -8,9 +8,21 @@ var database = require("../database/config")
     return database.executar(instrucaoSql);
     }
 
-    function trazerinformacoesusuario(nome, classificacao, pontuacao, fkusuario){
+    function rankingindicla(classificacao, fkusuario){
         var instrucaoSql = `
-         SELECT  pontuacao AS Pontuação, classificacao AS Classificação FROM ranking WHERE fkusuario = ${fkusuario} ORDER BY pontuacao DESC LIMIT 1;
+         SELECT  classificacao AS Classificação FROM ranking WHERE fkusuario = ${fkusuario} ORDER BY pontuacao DESC LIMIT 1;
+    `;
+    return database.executar(instrucaoSql);    
+    }
+        function rankingindipont(pontuacao, fkusuario){
+        var instrucaoSql = `
+         SELECT  pontuacao AS Pontuação FROM ranking WHERE fkusuario = ${fkusuario} ORDER BY pontuacao DESC LIMIT 1;
+    `;
+    return database.executar(instrucaoSql);    
+    }
+      function rankingindinome(nome, fkusuario){
+        var instrucaoSql = `
+         SELECT  nome AS Nome FROM ranking WHERE fkusuario = ${fkusuario} ORDER BY pontuacao DESC LIMIT 1;
     `;
     return database.executar(instrucaoSql);    
     }
@@ -25,6 +37,8 @@ var database = require("../database/config")
 
 module.exports = {
     implementar,
-    trazerinformacoesusuario,
+    rankingindicla,
+    rankingindipont,
+    rankingindinome,
     trazerinformacoestotal
 };

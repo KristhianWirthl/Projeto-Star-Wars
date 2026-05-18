@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Timeline Star Wars</title>
 </head>
 <link rel="stylesheet" href="../Style/timeline.css">
+
 <body>
     <header>
         <div class="container">
@@ -15,7 +17,7 @@
                 <a href="./StarWars.html" class="navegacao">Home</a>
                 <a id="a_cad" href="./Cadastro.html" class="navegacao">Cadastro</a>
                 <a id="a_login" href="./Login.html" class="navegacao">Login</a>
-                <button id="a_logout" onclick="sair()" class="navegacao" >Logout</button>
+                <button id="a_logout" onclick="sair()" class="navegacao">Logout</button>
                 <a id="a_quiz" href="./Quiz.html" class="navegacao">Quiz</a>
                 <a href="./Timeline.html" class="navegacao_atual">Timeline</a>
                 <a id="a_dashboard" href="../Dashboard/Dashboard.html" class="navegacao">Dashboard</a>
@@ -26,40 +28,41 @@
     <audio id="musica" src="../Sounds/Copyright Free Star Wars Music - The Path of the Force.mp3" autoplay loop></audio>
     <image class="timeline-completa" src="../Images/Timeline completo.png"></image>
 
-        <footer>
+    <footer>
         <div class="footer">
             <p>2026 Kristhian Wirthl - Star Wars Fan Page - STAR WARS © 2026 & TM Lucasfilm Ltd. All rights Reserved</p>
         </div>
     </footer>
 </body>
+
 </html>
 
 <script>
 
-    function verificarlogin(){
+    function verificarlogin() {
 
-    var idusuario = sessionStorage.ID_USUARIO;
+        var idusuario = sessionStorage.ID_USUARIO;
 
-    var nav = document.getElementById("navss");
+        var nav = document.getElementById("navss");
 
-    if (idusuario != null){
-        a_cad.style.display = "none";
-        a_login.style.display = "none";
-        a_dashboard.style.display = "flex";
-        a_logout.style.display = "flex";
-    } else {
-        a_cad.style.display = "flex";
-        a_login.style.display = "flex";
-        a_dashboard.style.display = "none";
-        a_logout.style.display = "none";
+        if (idusuario != null) {
+            a_cad.style.display = "none";
+            a_login.style.display = "none";
+            a_dashboard.style.display = "flex";
+            a_logout.style.display = "flex";
+        } else {
+            a_cad.style.display = "flex";
+            a_login.style.display = "flex";
+            a_dashboard.style.display = "none";
+            a_logout.style.display = "none";
+        }
     }
-}
 
-function sair(){
+    function sair() {
         sessionStorage.clear();
         window.location = "StarWars.html"
-}
+    }
 
-verificarlogin()
+    verificarlogin()
 
 </script>

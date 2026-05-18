@@ -4,16 +4,36 @@
     display: flex;
     justify-content:center;
     align-items:center;
-    flex-direction: column;
+    flex-direction: row;
     background-color: #313137;
     border-radius: 20px;
-    width: 250px;
-    height: 250px;
+    width: 650px;
+    height: 350px;
+}
+
+.contianerinfo{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction: column;
+}
+
+.containerimagem1{
+    display: flex;
+    width: 150px;
+    height: 150px;
+    margin-right: 75px;
 }
 
 .containerimagem2{
     display: flex;
-    width: 200px;
-    height: 200px;
-    background-color: aqua;
+    width: 150px;
+    height: 150px;
+    margin-right: 75px;
+}
+
+.botaologin{
+    display: flex;
+    justify-content:center;
+    align-items:center;
 }

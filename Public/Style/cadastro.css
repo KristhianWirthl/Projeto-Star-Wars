@@ -4,16 +4,36 @@
     display: flex; /*  permitir ajustar os itens de forma que eu preferir */
     justify-content:center; /*  deixar os itens dentro do container centralizados verticalmente */
     align-items:center; /*  deixar os itens dentro do container centralizados horizontalmente */
-    flex-direction: column; /*  deixar as informações alinhadas em forma de coluna */
+    flex-direction: row; /*  deixar as informações alinhadas em forma de coluna */
     background-color: #313137; /*  cor de fundo de tudo */
     border-radius: 20px; /*  deixar redondo nas pontas */
-    width: 500px; /*  tamanho do container horizontalmente */
+    width: 650px; /*  tamanho do container horizontalmente */
     height: 420px; /*  tamanho do container verticalmente */
+}
+
+.contianerinfo{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction: column;
 }
 
 .containerimagem1{
     display: flex;
     width: 200px;
     height: 200px;
-    background-color: aqua;
+    margin-left: 75px;
+}
+
+.containerimagem2{
+    display: flex;
+    width: 200px;
+    height: 200px;
+    margin-right: 75px;
+}
+
+.botaocadastro{
+    display: flex;
+    justify-content:center;
+    align-items:center;
 }

@@ -1,89 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro Star Wars</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro Star Wars</title>
 </head>
 <link rel="stylesheet" href="../Style/cadastro.css">
+
 <body>
-    <header>
-        <div class="container">
-            <image src="../Images/Star Wars Logo.png" class="logo"></image>
-            <h1 class="titulo">Star Wars</h1>
-            <nav id="navss" class="navs">
-                <a href="./StarWars.html" class="navegacao">Home</a>
-                <a id="a_cad" href="./Cadastro.html" class="navegacao_atual">Cadastro</a>
-                <a id="a_login" href="./Login.html" class="navegacao">Login</a>
-                <button id="a_logout" onclick="sair()" class="navegacao " >Logout</button>
-                <a id="a_quiz" href="./Quiz.html" class="navegacao">Quiz</a>
-                <a href="./Timeline.html" class="navegacao">Timeline</a>
-                <a id="a_dashboard" href="../Dashboard/Dashboard.html" class="navegacao">Dashboard</a>
-            </nav>
-        </div>
-    </header>
-    <div class="form">
+  <header>
+    <div class="container">
+      <image src="../Images/Star Wars Logo.png" class="logo"></image>
+      <h1 class="titulo">Star Wars</h1>
+      <nav id="navss" class="navs">
+        <a href="./StarWars.html" class="navegacao">Home</a>
+        <a id="a_cad" href="./Cadastro.html" class="navegacao_atual">Cadastro</a>
+        <a id="a_login" href="./Login.html" class="navegacao">Login</a>
+        <button id="a_logout" onclick="sair()" class="navegacao ">Logout</button>
+        <a id="a_quiz" href="./Quiz.html" class="navegacao">Quiz</a>
+        <a href="./Timeline.html" class="navegacao">Timeline</a>
+        <a id="a_dashboard" href="../Dashboard/Dashboard.html" class="navegacao">Dashboard</a>
+      </nav>
+    </div>
+  </header>
+  <div class="form">
+    <div class="containerform">
       <div class="containerimagem1">
-  <img src="../Images/Baby Yoda bebendo GIF.gif">
+        <img src="../Images/Baby Yoda bebendo GIF.gif">
+      </div>
+      <div class="containerinfo">
+      <div class="titulo-form">
+        <h2>Cadastro</h2>
+      </div>
+      <div class="inputs">
+        <audio id="musica" src="../Sounds/Copyright Free Star Wars Music - The Path of the Force.mp3" autoplay
+          loop></audio>
+        <input type="text" id="nome_input" placeholder="Nome Completo"><br>
+        <input type="text" id="idade_input" placeholder="Idade"><br>
+        <input type="text" id="planeta_origem_input" placeholder="Planeta de Origem"><br>
+        <input type="text" id="especie_input" placeholder="Espécie"><br>
+        <input type="text" id="nave_input" placeholder="Nave"><br>
+        <input type="text" id="email_input" placeholder="E-mail"><br>
+        <input type="password" id="senha_input" placeholder="Senha"><br>
+        <input type="password" id="confirmar_senha_input" placeholder="Confirmar Senha"><br>
+      </div>
+      <div class=botaocadastro>
+      <button onclick="cadastrar()">Cadastrar</button>
+      </div>
+      </div>
+      <div class="containerimagem2">
+        <img src="../Images/Baby Yoda bebendo GIF.gif">
+      </div>
     </div>
-        <div class="containerform">
-            <div class="titulo-form">
-                <h2>Cadastro</h2>
-            </div>
-            <div class="inputs">
-                <audio id="musica" src="../Sounds/Copyright Free Star Wars Music - The Path of the Force.mp3" autoplay loop></audio>
-                <input type="text" id="nome_input" placeholder="Nome Completo"><br>
-                <input type="text" id="idade_input" placeholder="Idade"><br>
-                <input type="text" id="planeta_origem_input" placeholder="Planeta de Origem"><br>
-                <input type="text" id="especie_input" placeholder="Espécie"><br>
-                <input type="text" id="nave_input" placeholder="Nave"><br>
-                <input type="text" id="email_input" placeholder="E-mail"><br>
-                <input type="password" id="senha_input" placeholder="Senha"><br>
-                <input type="password" id="confirmar_senha_input" placeholder="Confirmar Senha"><br>
-            </div>
-            <button onclick="cadastrar()">Cadastrar</button>
-        </div>
-            <div class="containerimagem1">
-            <img src="../Images/Baby Yoda bebendo GIF.gif">
+  </div>
+  <footer>
+    <div class="footer">
+      <p>2026 Kristhian Wirthl - Star Wars Fan Page - STAR WARS © 2026 & TM Lucasfilm Ltd. All rights Reserved</p>
     </div>
-    </div>
-        <footer>
-        <div class="footer">
-            <p>2026 Kristhian Wirthl - Star Wars Fan Page - STAR WARS © 2026 & TM Lucasfilm Ltd. All rights Reserved</p>
-        </div>
-    </footer>
+  </footer>
 </body>
+
 </html>
 
 <script>
 
-function verificarlogin(){
+  function verificarlogin() {
 
     var idusuario = sessionStorage.ID_USUARIO;
 
     var nav = document.getElementById("navss");
 
-    if (idusuario != null){
-        a_cad.style.display = "none";
-        a_login.style.display = "none";
-        a_dashboard.style.display = "flex";
-        a_logout.style.display = "flex";
+    if (idusuario != null) {
+      a_cad.style.display = "none";
+      a_login.style.display = "none";
+      a_dashboard.style.display = "flex";
+      a_logout.style.display = "flex";
     } else {
-        a_cad.style.display = "flex";
-        a_login.style.display = "flex";
-        a_dashboard.style.display = "none";
-        a_logout.style.display = "none";
+      a_cad.style.display = "flex";
+      a_login.style.display = "flex";
+      a_dashboard.style.display = "none";
+      a_logout.style.display = "none";
     }
-}
+  }
 
-function sair(){
-        sessionStorage.clear();
-        window.location = "StarWars.html"
-}
+  function sair() {
+    sessionStorage.clear();
+    window.location = "StarWars.html"
+  }
 
-verificarlogin()
+  verificarlogin()
 
-  function limparFormulario(){
+  function limparFormulario() {
     nome_input.value = "";
     idade_input.value = "";
     planeta_origem_input.value = "";
@@ -114,7 +122,7 @@ verificarlogin()
     // Verificando se há algum campo em branco
     if (
       nomeVar == "" ||
-      idadeVar == "" || 
+      idadeVar == "" ||
       planetaVar == "" ||
       especieVar == "" ||
       naveVar == "" ||
@@ -132,49 +140,49 @@ verificarlogin()
       alert("Algum erro foi detectado!")
       //finalizarAguardar();
       //return false;
-    }else{
+    } else {
 
 
-    // Enviando o valor da nova input
-    fetch("/usuarios/cadastrar", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
-        nomeServer: nomeVar,
-        idadeServer: idadeVar,
-        planetaServer: planetaVar,
-        especieServer: especieVar,
-        naveServer: naveVar,
-        emailServer: emailVar,
-        senhaServer: senhaVar
-      }),
-    })
-      .then(function (resposta) {
-        console.log("resposta: ", resposta);
-
-        if (resposta.ok) {
-          alert("Cadastrado com sucesso")
-
-          setTimeout(() => {
-            window.location = "Login.html";
-          }, "2000");
-
-          limparFormulario();
-          //finalizarAguardar();
-        } else {
-          throw "Houve um erro ao tentar realizar o cadastro!";
-        }
+      // Enviando o valor da nova input
+      fetch("/usuarios/cadastrar", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          // crie um atributo que recebe o valor recuperado aqui
+          // Agora vá para o arquivo routes/usuario.js
+          nomeServer: nomeVar,
+          idadeServer: idadeVar,
+          planetaServer: planetaVar,
+          especieServer: especieVar,
+          naveServer: naveVar,
+          emailServer: emailVar,
+          senhaServer: senhaVar
+        }),
       })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-        //finalizarAguardar();
-      });
-      
-    return false;
-  }
+        .then(function (resposta) {
+          console.log("resposta: ", resposta);
+
+          if (resposta.ok) {
+            alert("Cadastrado com sucesso")
+
+            setTimeout(() => {
+              window.location = "Login.html";
+            }, "2000");
+
+            limparFormulario();
+            //finalizarAguardar();
+          } else {
+            throw "Houve um erro ao tentar realizar o cadastro!";
+          }
+        })
+        .catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`);
+          //finalizarAguardar();
+        });
+
+      return false;
+    }
   }
 </script>

@@ -27,8 +27,14 @@ fkusuario INT,
 CONSTRAINT constusuarioapre FOREIGN KEY (fkusuario) REFERENCES usuario(id)
 );
 
-SELECT COUNT(classificacao) FROM ranking group by classificacao;
+select * from usuario;	
 
--- 1 pra 1
--- 1 pra n
--- essa 1 pra 1 eu falo que vou implementar nos proximos passos, e ta ok, n precisa realmente fazer a conexao, importante é o diagrama
+drop table usuario;
+
+SELECT usuario.nome AS Nome, ranking.classificacao AS Classificação, ranking.pontuacao AS Pontuação FROM usuario LEFT JOIN ranking ON usuario.id = ranking.fkusuario;
+
+SELECT COUNT(classificacao), classificacao FROM ranking group by classificacao;
+
+SELECT * FROM ranking;
+SET @fkusuario = 1;
+ SELECT  pontuacao AS Pontuação, classificacao AS Classificação FROM ranking WHERE fkusuario = @fkusuario ORDER BY pontuacao DESC LIMIT 1;

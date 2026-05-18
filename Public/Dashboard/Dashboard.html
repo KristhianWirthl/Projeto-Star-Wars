@@ -1,87 +1,114 @@
-    <!DOCTYPE html>
-    <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Dashboard Star Wars</title>
-    </head>
-    <link rel="stylesheet" href="../Style/dashboard.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Star Wars</title>
+</head>
+<link rel="stylesheet" href="../Style/dashboard.css">
 
-    <body>
-        <header>
-            <div class="container">
-                <image src="../Images/Star Wars Logo.png" class="logo"></image>
-                <h1 class="titulo">Star Wars</h1>
-                <nav id="navss" class="navs">
-                    <a href="../Pages/StarWars.html" class="navegacao">Home</a>
-                    <a id="a_cad" href="../Pages/Cadastro.html" class="navegacao">Cadastro</a>
-                    <a id="a_login" href="../Pages/Login.html" class="navegacao">Login</a>
-                    <button id="a_logout" onclick="sair()" class="navegacao ">Logout</button>
-                    <a id="a_quiz" href="../Pages/Quiz.html" class="navegacao">Quiz</a>
-                    <a href="../Pages/Timeline.html" class="navegacao">Timeline</a>
-                    <a href="./Dashboard.html" class="navegacao_atual">Dashboard</a>
-                </nav>
-            </div>
-        </header>
-
-        <div class="dashboard">
-            <div class="kpis-container">
-                <p class="kpis">Mestre-Jedi</p>
-                <!-- colocar 1 de pontuação e outro classificação  -->
-                <p class="kpis">11</p>
-            </div>
-            <div class="grafico">
-                <canvas id="Ranking"></canvas>
-            </div>
+<body onload="obterDadosGrafico()">
+    <header>
+        <div class="container">
+            <image src="../Images/Star Wars Logo.png" class="logo"></image>
+            <h1 class="titulo">Star Wars</h1>
+            <nav id="navss" class="navs">
+                <a href="../Pages/StarWars.html" class="navegacao">Home</a>
+                <a id="a_cad" href="../Pages/Cadastro.html" class="navegacao">Cadastro</a>
+                <a id="a_login" href="../Pages/Login.html" class="navegacao">Login</a>
+                <button id="a_logout" onclick="sair()" class="navegacao ">Logout</button>
+                <a id="a_quiz" href="../Pages/Quiz.html" class="navegacao">Quiz</a>
+                <a href="../Pages/Timeline.html" class="navegacao">Timeline</a>
+                <a href="./Dashboard.html" class="navegacao_atual">Dashboard</a>
+            </nav>
         </div>
+    </header>
+    <button onclick="chamarFunc()">Obter dados</button>
+    <div class="dashboard">
+        <div class="kpis-container">
+            <p id="kpi_nome" class="kpis">nome</p>
+            <!-- colocar 1 de pontuação e outro classificação  -->
+            <p id="kpi_classificacao" class="kpis">classificacao</p>
+            <p id="kpi_pontuacao" class="kpis">pontuacao</p>
+        </div>
+        <div class="grafico">
+            <canvas id="Ranking"></canvas>
+        </div>
+    </div>
 
 
 
-        <audio id="musica" src="../Sounds/Copyright Free Star Wars Music - The Path of the Force.mp3" autoplay loop></audio>
+    <audio id="musica" src="../Sounds/Copyright Free Star Wars Music - The Path of the Force.mp3" autoplay loop></audio>
 
 
-        <footer>
-            <div class="footer">
-                <p>2026 Kristhian Wirthl - Star Wars Fan Page - STAR WARS © 2026 & TM Lucasfilm Ltd. All rights Reserved</p>
-            </div>
-        </footer>
+    <footer>
+        <div class="footer">
+            <p>2026 Kristhian Wirthl - Star Wars Fan Page - STAR WARS © 2026 & TM Lucasfilm Ltd. All rights Reserved</p>
+        </div>
+    </footer>
 
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
 
-            function verificarlogin() {
+        var idusuario = sessionStorage.ID_USUARIO;
 
-                var idusuario = sessionStorage.ID_USUARIO;
-                console.log('teste', idusuario)
+        function verificarlogin() {
 
-                var nav = document.getElementById("navss");
+            var idusuario = sessionStorage.ID_USUARIO;
+            console.log('teste', idusuario)
 
-                if (idusuario != null) {
-                    a_cad.style.display = "none";
-                    a_login.style.display = "none";
-                    a_logout.style.display = "flex";
+            var nav = document.getElementById("navss");
+
+            if (idusuario != null) {
+                a_cad.style.display = "none";
+                a_login.style.display = "none";
+                a_logout.style.display = "flex";
+            } else {
+                a_cad.style.display = "flex";
+                a_login.style.display = "flex";
+                a_logout.style.display = "none";
+            }
+        }
+
+        function sair() {
+            sessionStorage.clear();
+            window.location = "StarWars.html"
+        }
+
+        verificarlogin()
+
+
+
+        function obterDadosGrafico() {
+            fetch(`/quiz/ranking/${idusuario}`, { cache: 'no-store' }).then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+                        console.log(resposta[0].classificacao)
+                        plotarGrafico(resposta, id);
+                        atualizarKPIs(resposta);
+
+                    });
                 } else {
-                    a_cad.style.display = "flex";
-                    a_login.style.display = "flex";
-                    a_logout.style.display = "none";
+                    console.error('Nenhum dado encontrado ou erro na API');
                 }
-            }
+            })
+                .catch(function (error) {
+                    console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+                });
+        }
 
-            function sair() {
-                sessionStorage.clear();
-                window.location = "StarWars.html"
-            }
+        function plotarGrafico(resposta) {
 
-            verificarlogin()
-
-            // fetch("/quiz/ranking",
-            //     method: "get")
+            console.log('iniciando plotagem do gráfico...');
+            let labels = [];
 
             const ctx = document.getElementById('Ranking');
-
-            const labels = ['Sem Midichlorianos', 'Youngling', 'Padawan', 'Cavaleiro Jedi', 'Mestre Jedi', 'Grão-Mestre Jedi'];
-            const data = {
+    
+            labels = ['Sem Midichlorianos', 'Youngling', 'Padawan', 'Cavaleiro Jedi', 'Mestre Jedi', 'Grão-Mestre Jedi'];
+            let data = {
                 labels: labels,
                 datasets: [{
                     label: 'Quantidade de usuários por Ranking',
@@ -98,7 +125,7 @@
                     borderWidth: 2
                 }]
             }
-
+            
             new Chart(ctx, {
                 type: 'bar',
                 data: data,
@@ -110,9 +137,11 @@
                     }
                 }
             });
+        }
 
-        </script>
 
-        <!-- a lista, eu quero que ele puxe de um banco de dados. Eu fiz um quiz, e o que acontece, toda vez que alguem responde o quiz,
+    </script>
+
+    <!-- a lista, eu quero que ele puxe de um banco de dados. Eu fiz um quiz, e o que acontece, toda vez que alguem responde o quiz,
         quero que o resultado seja armazenado no perfil de quem fez, e automaticamente será lançado em uma lista, e no dashboard os dados
         que aparecerão são dessa lista -->

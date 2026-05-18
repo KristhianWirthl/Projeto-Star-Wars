@@ -11,4 +11,8 @@ router.get("/ranking", function (req, res) {
     quizController.ranking(req, res);
 });
 
+router.get("/ranking/:id", function (req, res) {
+    quizController.rankingindicla(req, res);
+});
+
 module.exports = router;

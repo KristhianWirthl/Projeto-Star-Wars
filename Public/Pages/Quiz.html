@@ -1,248 +1,252 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Quiz Star Wars</title>
-    </head>
-    <link rel="stylesheet" href="../Style/quiz.css">
-    <body>
-        <header>
-            <div class="container">
-                <image src="../Images/Star Wars Logo.png" class="logo"></image>
-                <h1 class="titulo">Star Wars</h1>
-                <nav id="navss" class="navs">
-                    <a href="./StarWars.html" class="navegacao">Home</a>
-                    <a id="a_cad" href="./Cadastro.html" class="navegacao">Cadastro</a>
-                    <a id="a_login" href="./Login.html" class="navegacao">Login</a>
-                    <button id="a_logout" onclick="sair()" class="navegacao " >Logout</button>
-                    <a id="a_quiz" href="./Quiz.html" class="navegacao_atual">Quiz</a>
-                    <a href="./Timeline.html" class="navegacao">Timeline</a>
-                    <a id="a_dashboard" href="../Dashboard/Dashboard.html" class="navegacao">Dashboard</a>
-                </nav>
-            </div>
-        </header>
+<!DOCTYPE html>
+<html lang="en">
 
-        <div class="container-pergunta">
-            <h3>1. Qual a cor do sabre de luz de Luke Skywalker no primeiro filme</h3>
-            <img src="../Images/SabresdeLuz.webp" style="width: 400px; height: auto">
-            <div>
-                <div class="container-opcao">
-                    <button class="botao-opcao">Vermelho</button>
-                    <button class="botao-opcao">Verde</button>
-                    <button class="botao-opcao" onclick="verificar1() ">Azul</button>
-                    <button class="botao-opcao">Roxo</button>
-                </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Star Wars</title>
+</head>
+<link rel="stylesheet" href="../Style/quiz.css">
+
+<body>
+    <header>
+        <div class="container">
+            <image src="../Images/Star Wars Logo.png" class="logo"></image>
+            <h1 class="titulo">Star Wars</h1>
+            <nav id="navss" class="navs">
+                <a href="./StarWars.html" class="navegacao">Home</a>
+                <a id="a_cad" href="./Cadastro.html" class="navegacao">Cadastro</a>
+                <a id="a_login" href="./Login.html" class="navegacao">Login</a>
+                <button id="a_logout" onclick="sair()" class="navegacao ">Logout</button>
+                <a id="a_quiz" href="./Quiz.html" class="navegacao_atual">Quiz</a>
+                <a href="./Timeline.html" class="navegacao">Timeline</a>
+                <a id="a_dashboard" href="../Dashboard/Dashboard.html" class="navegacao">Dashboard</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container-pergunta">
+        <h3>1. Qual a cor do sabre de luz de Luke Skywalker no primeiro filme</h3>
+        <img src="../Images/SabresdeLuz.webp" style="width: 400px; height: auto">
+        <div>
+            <div class="container-opcao">
+                <button class="botao-opcao">Vermelho</button>
+                <button class="botao-opcao">Verde</button>
+                <button class="botao-opcao" onclick="verificar1() ">Azul</button>
+                <button class="botao-opcao">Roxo</button>
             </div>
         </div>
+    </div>
 
-        <div class="container-pergunta">
-            <h3>2. Quem construiu C-3PO</h3>
-            <img src="../Images/C3P0.webp" style="width: 300px; height: auto">
-            <div>
-                <div class="container-opcao">
-                    <button class="botao-opcao">Han Solo</button>
-                    <button class="botao-opcao"onclick="verificar2()">Anakin Skywalker</button>
-                    <button class="botao-opcao">Obi Wan Kenobi</button>
-                    <button class="botao-opcao">Watto</button>
-                </div>
+    <div class="container-pergunta">
+        <h3>2. Quem construiu C-3PO</h3>
+        <img src="../Images/C3P0.webp" style="width: 300px; height: auto">
+        <div>
+            <div class="container-opcao">
+                <button class="botao-opcao">Han Solo</button>
+                <button class="botao-opcao" onclick="verificar2()">Anakin Skywalker</button>
+                <button class="botao-opcao">Obi Wan Kenobi</button>
+                <button class="botao-opcao">Watto</button>
             </div>
         </div>
+    </div>
 
-        <div class="container-pergunta">
-            <h3>3. Onde Yoda viveu durante seu exílio</h3>
-            <img src="../Images/Yoda jovem.jpg" style="width: 400px; height: auto">
-            <div>
-                <div class="container-opcao">
-                    <button class="botao-opcao">Tatooine</button>
-                    <button class="botao-opcao">Hoth</button>
-                    <button class="botao-opcao">Endor</button>
-                    <button class="botao-opcao"onclick="verificar3()">Dagobah</button>
-                </div>
+    <div class="container-pergunta">
+        <h3>3. Onde Yoda viveu durante seu exílio</h3>
+        <img src="../Images/Yoda jovem.jpg" style="width: 400px; height: auto">
+        <div>
+            <div class="container-opcao">
+                <button class="botao-opcao">Tatooine</button>
+                <button class="botao-opcao">Hoth</button>
+                <button class="botao-opcao">Endor</button>
+                <button class="botao-opcao" onclick="verificar3()">Dagobah</button>
             </div>
         </div>
+    </div>
 
-        <div class="container-pergunta">
-            <h3>4. Qual o nome da nave que Han Solo ganhou durante uma aposta de Lando Calrissian</h3>
-            <img src="../Images/Millennium Falcon.webp" style="width: 450px; height: auto">
-            <div>
-                <div class="container-opcao">
-                    <button class="botao-opcao">Slave 1</button>
-                    <button class="botao-opcao"onclick="verificar4()">Millenium Falcon</button>
-                    <button class="botao-opcao">Ghost</button>
-                    <button class="botao-opcao">Razor Crest</button>
-                </div>
+    <div class="container-pergunta">
+        <h3>4. Qual o nome da nave que Han Solo ganhou durante uma aposta de Lando Calrissian</h3>
+        <img src="../Images/Millennium Falcon.webp" style="width: 450px; height: auto">
+        <div>
+            <div class="container-opcao">
+                <button class="botao-opcao">Slave 1</button>
+                <button class="botao-opcao" onclick="verificar4()">Millenium Falcon</button>
+                <button class="botao-opcao">Ghost</button>
+                <button class="botao-opcao">Razor Crest</button>
             </div>
         </div>
+    </div>
 
-        <div class="container-pergunta">
-            <h3>5. Quem disse a frase "Eu sou seu pai"</h3>
-            <img src="../Images/Luke no.gif" style="width: 450px; height: auto">
-            <div>
-                <div class="container-opcao">
-                    <button class="botao-opcao">Imperador Palpatine</button>
-                    <button class="botao-opcao">Conde Dooku</button>
-                    <button class="botao-opcao" onclick="verificar5()">Darth Vader</button>
-                    <button class="botao-opcao">Kylo Ren</button>
-                </div>
+    <div class="container-pergunta">
+        <h3>5. Quem disse a frase "Eu sou seu pai"</h3>
+        <img src="../Images/Luke no.gif" style="width: 450px; height: auto">
+        <div>
+            <div class="container-opcao">
+                <button class="botao-opcao">Imperador Palpatine</button>
+                <button class="botao-opcao">Conde Dooku</button>
+                <button class="botao-opcao" onclick="verificar5()">Darth Vader</button>
+                <button class="botao-opcao">Kylo Ren</button>
             </div>
         </div>
+    </div>
 
-        <div class="container-pergunta">
-            <h3>6. Qual o nome do personagem entitulado como "Baby yoda"</h3>
-            <img src="../Images/Baby Yoda comendo sapo.jpg" style="width: 350px; height: auto">
-            <div>
-                <div class="container-opcao">
-                    <button class="botao-opcao">Din Djarin</button>
-                    <button class="botao-opcao"onclick="verificar6()">Grogu</button>
-                    <button class="botao-opcao">Yoda</button>
-                    <button class="botao-opcao">Yaddle</button>
-                </div>
+    <div class="container-pergunta">
+        <h3>6. Qual o nome do personagem entitulado como "Baby yoda"</h3>
+        <img src="../Images/Baby Yoda comendo sapo.jpg" style="width: 350px; height: auto">
+        <div>
+            <div class="container-opcao">
+                <button class="botao-opcao">Din Djarin</button>
+                <button class="botao-opcao" onclick="verificar6()">Grogu</button>
+                <button class="botao-opcao">Yoda</button>
+                <button class="botao-opcao">Yaddle</button>
             </div>
         </div>
+    </div>
 
-        <div class="container-pergunta">
-            <h3>7. Quem foi o mestre Jedi que treinou Qui Gon Jin</h3>
-            <img src="../Images/Qui Gon Jin.webp" style="width: 350px; height: auto">
-            <div>
-                <div class="container-opcao">
-                    <button class="botao-opcao">Obi Wan Kenobi</button>
-                    <button class="botao-opcao">Yoda</button>
-                    <button class="botao-opcao">Mace Windu</button>
-                    <button class="botao-opcao"onclick="verificar7()">Conde Dooku</button>
-                </div>
+    <div class="container-pergunta">
+        <h3>7. Quem foi o mestre Jedi que treinou Qui Gon Jin</h3>
+        <img src="../Images/Qui Gon Jin.webp" style="width: 350px; height: auto">
+        <div>
+            <div class="container-opcao">
+                <button class="botao-opcao">Obi Wan Kenobi</button>
+                <button class="botao-opcao">Yoda</button>
+                <button class="botao-opcao">Mace Windu</button>
+                <button class="botao-opcao" onclick="verificar7()">Conde Dooku</button>
             </div>
         </div>
+    </div>
 
-        <div class="container-pergunta">
-            <h3>8. Qual nome da espécie do Chewie</h3>
-            <img src="../Images/Chewie.jpg" style="width: 350px; height: auto">
-            <div>
-                <div class="container-opcao">
-                    <button class="botao-opcao"onclick="verificar8()">Wookie</button>
-                    <button class="botao-opcao">Humano</button>
-                    <button class="botao-opcao">Trandoshiano</button>
-                    <button class="botao-opcao">Neimodiano</button>
-                </div>
+    <div class="container-pergunta">
+        <h3>8. Qual nome da espécie do Chewie</h3>
+        <img src="../Images/Chewie.jpg" style="width: 350px; height: auto">
+        <div>
+            <div class="container-opcao">
+                <button class="botao-opcao" onclick="verificar8()">Wookie</button>
+                <button class="botao-opcao">Humano</button>
+                <button class="botao-opcao">Trandoshiano</button>
+                <button class="botao-opcao">Neimodiano</button>
             </div>
         </div>
+    </div>
 
-        <div class="container-pergunta">
-            <h3>9. Quantos anos Yoda tinha quando morreu</h3>
-            <img src="../Images/Yoda.webp" style="width: 350px; height: auto">
-            <div>
-                <div class="container-opcao">
-                    <button class="botao-opcao">800</button>
-                    <button class="botao-opcao"onclick="verificar9()">900</button>
-                    <button class="botao-opcao">1000</button>
-                    <button class="botao-opcao">Ele não morreu</button>
-                </div>
+    <div class="container-pergunta">
+        <h3>9. Quantos anos Yoda tinha quando morreu</h3>
+        <img src="../Images/Yoda.webp" style="width: 350px; height: auto">
+        <div>
+            <div class="container-opcao">
+                <button class="botao-opcao">800</button>
+                <button class="botao-opcao" onclick="verificar9()">900</button>
+                <button class="botao-opcao">1000</button>
+                <button class="botao-opcao">Ele não morreu</button>
             </div>
         </div>
+    </div>
 
-        <div class="container-pergunta">
-            <h3>10. Qual o código do capitão Rex</h3>
-            <img src="../Images/Captain Rex.png" style="width: 320px; height: auto">
-            <div>
-                <div class="container-opcao">
-                    <button class="botao-opcao">CT-27-5555</button>
-                    <button class="botao-opcao">CT-2224</button>
-                    <button class="botao-opcao">CT-3636</button>
-                    <button class="botao-opcao"onclick="verificar10()">CT-7567</button>
-                </div>
+    <div class="container-pergunta">
+        <h3>10. Qual o código do capitão Rex</h3>
+        <img src="../Images/Captain Rex.png" style="width: 320px; height: auto">
+        <div>
+            <div class="container-opcao">
+                <button class="botao-opcao">CT-27-5555</button>
+                <button class="botao-opcao">CT-2224</button>
+                <button class="botao-opcao">CT-3636</button>
+                <button class="botao-opcao" onclick="verificar10()">CT-7567</button>
             </div>
         </div>
+    </div>
 
-        <div class="container-pergunta">
-            <h3>11. Qual a forma de combate de sabre de luz do Mace Windu</h3>
-            <img src="../Images/Mace Windu.png" style="width: 250px; height: auto">
-            <div>
-                <div class="container-opcao">
-                    <button class="botao-opcao">Forma 3 (Soresu)</button>
-                    <button class="botao-opcao">Forma 4 (Ataru)</button>
-                    <button class="botao-opcao" onclick="verificar11()">Forma 7 (Vaapad)</button>
-                    <button class="botao-opcao">Forma 5 (Shien)</button>
-                </div>
+    <div class="container-pergunta">
+        <h3>11. Qual a forma de combate de sabre de luz do Mace Windu</h3>
+        <img src="../Images/Mace Windu.png" style="width: 250px; height: auto">
+        <div>
+            <div class="container-opcao">
+                <button class="botao-opcao">Forma 3 (Soresu)</button>
+                <button class="botao-opcao">Forma 4 (Ataru)</button>
+                <button class="botao-opcao" onclick="verificar11()">Forma 7 (Vaapad)</button>
+                <button class="botao-opcao">Forma 5 (Shien)</button>
             </div>
         </div>
+    </div>
 
-        <div class="container-pergunta">
-            <h3>12. Qual o nome da criatura encontrada no compactador de lixo da estrela da morte</h3>
-            <img src="../Images/Dianoga.webp" style="width: 300px; height: auto">
-            <div>
-                <div class="container-opcao">
-                    <button class="botao-opcao" onclick="verificar12()">Dianoga</button>
-                    <button class="botao-opcao">Wampa</button>
-                    <button class="botao-opcao">Rancor</button>
-                    <button class="botao-opcao">Sarlacc</button>
-                </div>
+    <div class="container-pergunta">
+        <h3>12. Qual o nome da criatura encontrada no compactador de lixo da estrela da morte</h3>
+        <img src="../Images/Dianoga.webp" style="width: 300px; height: auto">
+        <div>
+            <div class="container-opcao">
+                <button class="botao-opcao" onclick="verificar12()">Dianoga</button>
+                <button class="botao-opcao">Wampa</button>
+                <button class="botao-opcao">Rancor</button>
+                <button class="botao-opcao">Sarlacc</button>
             </div>
         </div>
+    </div>
 
-        <div class="container-pergunta">
-            <h3>13. Qual o nome raro usado na armadura dos mandalorianos</h3>
-            <img src="../Images/Mandalorian.jpg" style="width: 200px; height: auto">
-            <div>
-                <div class="container-opcao">
-                    <button class="botao-opcao">Durastell</button>
-                    <button class="botao-opcao">Cortosis</button>
-                    <button class="botao-opcao" onclick="verificar13()">Beskar</button>
-                    <button class="botao-opcao">Carbonite</button>
-                </div>
+    <div class="container-pergunta">
+        <h3>13. Qual o nome raro usado na armadura dos mandalorianos</h3>
+        <img src="../Images/Mandalorian.jpg" style="width: 200px; height: auto">
+        <div>
+            <div class="container-opcao">
+                <button class="botao-opcao">Durastell</button>
+                <button class="botao-opcao">Cortosis</button>
+                <button class="botao-opcao" onclick="verificar13()">Beskar</button>
+                <button class="botao-opcao">Carbonite</button>
             </div>
         </div>
+    </div>
 
-        <div class="container-pergunta">
-            <h3>14. Qual o clone que tentou matar Obi Wan Kenobi assim que começou a  Ordem 66</h3>
-            <img src="../Images/Cody.avif" style="width: 400px; height: auto">
-            <div>
-                <div class="container-opcao">
-                    <button class="botao-opcao">Rex</button>
-                    <button class="botao-opcao"onclick="verificar14()">Cody</button>
-                    <button class="botao-opcao">Bly</button>
-                    <button class="botao-opcao">Gree</button>
-                </div>
+    <div class="container-pergunta">
+        <h3>14. Qual o clone que tentou matar Obi Wan Kenobi assim que começou a Ordem 66</h3>
+        <img src="../Images/Cody.avif" style="width: 400px; height: auto">
+        <div>
+            <div class="container-opcao">
+                <button class="botao-opcao">Rex</button>
+                <button class="botao-opcao" onclick="verificar14()">Cody</button>
+                <button class="botao-opcao">Bly</button>
+                <button class="botao-opcao">Gree</button>
             </div>
         </div>
+    </div>
 
-        <div class="container-pergunta">
-            <h3>15. Qual o nome da nave estelar Super Star Destroyer de Darth Vader</h3>
-            <img src="../Images/Executor.webp" style="width: 400px; height: auto">
-            <div>
-                <div class="container-opcao">
-                    <button class="botao-opcao">Devastator</button>
-                    <button class="botao-opcao">Chimera</button>
-                    <button class="botao-opcao" onclick="verificar15()">Executor</button>
-                    <button class="botao-opcao">Eclipse</button>
-                </div>
+    <div class="container-pergunta">
+        <h3>15. Qual o nome da nave estelar Super Star Destroyer de Darth Vader</h3>
+        <img src="../Images/Executor.webp" style="width: 400px; height: auto">
+        <div>
+            <div class="container-opcao">
+                <button class="botao-opcao">Devastator</button>
+                <button class="botao-opcao">Chimera</button>
+                <button class="botao-opcao" onclick="verificar15()">Executor</button>
+                <button class="botao-opcao">Eclipse</button>
             </div>
         </div>
+    </div>
 
-        <div class="container-resultado">
-            <button class="botao-validar" onclick="validar()">Verificar Pontuação</button>
-        
+    <div class="container-resultado">
+        <button class="botao-validar" onclick="validar()">Verificar Pontuação</button>
 
-        <audio id="musica" src="../Sounds/Copyright Free Star Wars Music - The Path of the Force.mp3" autoplay loop></audio>
+
+        <audio id="musica" src="../Sounds/Copyright Free Star Wars Music - The Path of the Force.mp3" autoplay
+            loop></audio>
 
         <div class="resultado" id="div_mensagem"></div>
+    </div>
+    <footer>
+        <div class="footer">
+            <p>2026 Kristhian Wirthl - Star Wars Fan Page - STAR WARS © 2026 & TM Lucasfilm Ltd. All rights Reserved</p>
         </div>
-            <footer>
-            <div class="footer">
-                <p>2026 Kristhian Wirthl - Star Wars Fan Page - STAR WARS © 2026 & TM Lucasfilm Ltd. All rights Reserved</p>
-            </div>
-        </footer>
-    </body>
-    </html>
+    </footer>
+</body>
 
-    <script>
+</html>
 
-        function verificarlogin(){
+<script>
+
+    function verificarlogin() {
 
         var idusuario = sessionStorage.ID_USUARIO;
 
         var nav = document.getElementById("navss");
 
-        if (idusuario != null){
+        if (idusuario != null) {
             a_cad.style.display = "none";
             a_login.style.display = "none";
             a_dashboard.style.display = "flex";
@@ -254,187 +258,187 @@
             a_logout.style.display = "none";
         }
 
-        if (idusuario != null){
+        if (idusuario != null) {
             alert("Faça o quiz e participe do Ranking!")
         } else {
             alert("Faça login para poder responder o Quiz!")
             window.location = "Login.html"
-    }
         }
-    function sair(){
-            sessionStorage.clear();
-            window.location = "StarWars.html"
+    }
+    function sair() {
+        sessionStorage.clear();
+        window.location = "StarWars.html"
     }
 
     verificarlogin()
 
-        let pontuacao = 0;
-        let mensagem = '';
-        // let botao = document.querySelectorAll("botao-opcao");
-        // let index = 0;
-        let listaclassificacao = [];
-        let listapontuacao = [];
-        let clicou = false;
-        let clicou2 = false;
-        let clicou3 = false;
-        let clicou4 = false;
-        let clicou5 = false;
-        let clicou6 = false;
-        let clicou7 = false;
-        let clicou8 = false;
-        let clicou9 = false;
-        let clicou10 = false;
-        let clicou11 = false;
-        let clicou12 = false;
-        let clicou13 = false;
-        let clicou14 = false;
-        let clicou15 = false;
+    let pontuacao = 0;
+    let mensagem = '';
+    // let botao = document.querySelectorAll("botao-opcao");
+    // let index = 0;
+    let listaclassificacao = [];
+    let listapontuacao = [];
+    let clicou = false;
+    let clicou2 = false;
+    let clicou3 = false;
+    let clicou4 = false;
+    let clicou5 = false;
+    let clicou6 = false;
+    let clicou7 = false;
+    let clicou8 = false;
+    let clicou9 = false;
+    let clicou10 = false;
+    let clicou11 = false;
+    let clicou12 = false;
+    let clicou13 = false;
+    let clicou14 = false;
+    let clicou15 = false;
 
-        function verificar1(){
-            if (clicou == false){
+    function verificar1() {
+        if (clicou == false) {
             pontuacao++;
             clicou = true;
-            }
         }
+    }
 
-        function verificar2(){
-            if (clicou2 == false){
+    function verificar2() {
+        if (clicou2 == false) {
             pontuacao++;
             clicou2 = true;
-            }
         }
+    }
 
-        function verificar3(){
-            if (clicou3 == false){
+    function verificar3() {
+        if (clicou3 == false) {
             pontuacao++;
             clicou3 = true;
-            }
         }
+    }
 
-        function verificar4(){
-            if (clicou4 == false){
+    function verificar4() {
+        if (clicou4 == false) {
             pontuacao++;
             clicou4 = true;
-            }
         }
+    }
 
-        function verificar5(){
-            if (clicou5 == false){
+    function verificar5() {
+        if (clicou5 == false) {
             pontuacao++;
             clicou5 = true;
-            }
         }
+    }
 
-        function verificar6(){
-            if (clicou6 == false){
+    function verificar6() {
+        if (clicou6 == false) {
             pontuacao++;
             clicou6 = true;
-            }
         }
+    }
 
-        function verificar7(){
-            if (clicou7 == false){
+    function verificar7() {
+        if (clicou7 == false) {
             pontuacao++;
             clicou7 = true;
-            }
         }
+    }
 
-        function verificar8(){
-            if (clicou8 == false){
+    function verificar8() {
+        if (clicou8 == false) {
             pontuacao++;
             clicou8 = true;
-            }
         }
+    }
 
-        function verificar9(){
-            if (clicou9 == false){
+    function verificar9() {
+        if (clicou9 == false) {
             pontuacao++;
             clicou9 = true;
-            }
         }
+    }
 
-        function verificar10(){
-            if (clicou10 == false){
+    function verificar10() {
+        if (clicou10 == false) {
             pontuacao++;
             clicou10 = true;
-            }
         }
+    }
 
-        function verificar11(){
-            if (clicou11 == false){
+    function verificar11() {
+        if (clicou11 == false) {
             pontuacao++;
             clicou11 = true;
-            }
         }
+    }
 
-        function verificar12(){
-            if (clicou12 == false){
+    function verificar12() {
+        if (clicou12 == false) {
             pontuacao++;
             clicou12 = true;
-            }
         }
+    }
 
-        function verificar13(){
-            if (clicou13 == false){
+    function verificar13() {
+        if (clicou13 == false) {
             pontuacao++;
             clicou13 = true;
-            }
         }
+    }
 
-        function verificar14(){
-            if (clicou14 == false){
+    function verificar14() {
+        if (clicou14 == false) {
             pontuacao++;
             clicou14 = true;
-            }
         }
+    }
 
-        function verificar15(){
-            if (clicou15 == false){
+    function verificar15() {
+        if (clicou15 == false) {
             pontuacao++;
             clicou15 = true;
-            }
         }
+    }
 
-        function validar(){
-            if (pontuacao >= 1 && pontuacao <= 3){
-                mensagem = `Youngling`;
-            } else if(pontuacao >= 4 && pontuacao <= 6){
-                mensagem = `Padawan`;
-            } else if(pontuacao >= 7 && pontuacao <= 9){
-                mensagem = `Cavaleiro Jedi`;
-            } else if(pontuacao >= 10 && pontuacao <= 12){
-                mensagem = `Mestre Jedi`;
-            } else if(pontuacao >= 13 && pontuacao <= 15){
-                mensagem = `Grão-Mestre Jedi`;
-            } else {
-                mensagem = `Sem Midichlorianos`;
-            }
-            div_mensagem.innerHTML = mensagem + ` - ${pontuacao}`;;
-            listaclassificacao.push(mensagem);
-            listapontuacao.push(pontuacao);
+    function validar() {
+        if (pontuacao >= 1 && pontuacao <= 3) {
+            mensagem = `Youngling`;
+        } else if (pontuacao >= 4 && pontuacao <= 6) {
+            mensagem = `Padawan`;
+        } else if (pontuacao >= 7 && pontuacao <= 9) {
+            mensagem = `Cavaleiro Jedi`;
+        } else if (pontuacao >= 10 && pontuacao <= 12) {
+            mensagem = `Mestre Jedi`;
+        } else if (pontuacao >= 13 && pontuacao <= 15) {
+            mensagem = `Grão-Mestre Jedi`;
+        } else {
+            mensagem = `Sem Midichlorianos`;
+        }
+        div_mensagem.innerHTML = mensagem + ` - ${pontuacao}`;;
+        listaclassificacao.push(mensagem);
+        listapontuacao.push(pontuacao);
 
-            setTimeout(() => window.location = "../Dashboard/Dashboard.html", 5000)
+        setTimeout(() => window.location = "../Dashboard/Dashboard.html", 5000)
 
 
-            fetch("/quiz/implementar",{
+        fetch("/quiz/implementar", {
             method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    classificacaoServer: mensagem,
-                    pontuacaoServer: pontuacao,
-                    fkusuarioServer: sessionStorage.ID_USUARIO
-                })
-                
-                // FALTA THEN ELSE
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                classificacaoServer: mensagem,
+                pontuacaoServer: pontuacao,
+                fkusuarioServer: sessionStorage.ID_USUARIO
+            })
+
+            // FALTA THEN ELSE
 
         }).then(function (resposta) {
             console.log("Peguei a resposta do quiz")
 
-            if(resposta.ok){
+            if (resposta.ok) {
                 alert("Resposta do Quiz salva no banco de dados");
-            }else{
+            } else {
                 alert("Resposta do Quiz não salva no banco de dados");
             }
 
@@ -442,15 +446,15 @@
 
 
         ).catch(function (erro) {
-                console.log(erro);
-                alert("Erro na resposta do Quiz")
-            })
+            console.log(erro);
+            alert("Erro na resposta do Quiz")
+        })
 
 
     }
 
 
-    </script>
+</script>
 
 
-    // Aqui já tem repetição (for e vetor) percorrer
+// Aqui já tem repetição (for e vetor) percorrer
