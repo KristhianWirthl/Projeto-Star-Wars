@@ -14,7 +14,7 @@ CREATE TABLE usuario (
 );
 
 CREATE TABLE ranking (
-    idranking INT PRIMARY KEY AUTO_INCREMENT,
+	idranking INT PRIMARY KEY AUTO_INCREMENT,
     classificacao VARCHAR(25),
     pontuacao INT,
     fkusuario INT UNIQUE,
@@ -28,13 +28,26 @@ fkusuario INT,
 CONSTRAINT constusuarioapre FOREIGN KEY (fkusuario) REFERENCES usuario(id)
 );
 
+INSERT INTO ranking (idranking, classificacao) VALUES
+(DEFAUlt, 'Sem Midichlorians'),
+(DEFAUlt, 'Youngling'),
+(DEFAUlt, 'Padawan'),
+(DEFAUlt, 'Cavaleiro Jedi'),
+(DEFAUlt, 'Mestre Jedi'),
+(DEFAUlt, 'Grão-Mestre Jedi');
+
 select * from usuario;	
 
 drop table usuario;
 
 SELECT usuario.nome AS Nome, ranking.classificacao AS Classificação, ranking.pontuacao AS Pontuação FROM usuario LEFT JOIN ranking ON usuario.id = ranking.fkusuario;
 
-SELECT classificacao, COUNT(*) as Total FROM ranking GROUP BY classificacao;
+SELECT classificacao,
+CASE WHEN COUNT(pontuacao) = 0
+THEN 0
+ELSE COUNT(pontuacao)
+END AS Total FROM ranking GROUP BY classificacao; 
+
 
 SELECT * FROM ranking;
 SET @fkusuario = 1;

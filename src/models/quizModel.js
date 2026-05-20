@@ -17,7 +17,11 @@ var database = require("../database/config")
 
     function trazerinformacoestotal(){
         var instrucaoSql = `
-        SELECT classificacao, COUNT(*) as Total FROM ranking GROUP BY classificacao;
+        SELECT classificacao,
+CASE WHEN COUNT(pontuacao) = 0
+THEN 0
+ELSE COUNT(pontuacao)
+END AS Total FROM ranking GROUP BY classificacao; 
     `;
     return database.executar(instrucaoSql);
     }    
