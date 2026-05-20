@@ -84,3 +84,8 @@ body{
     }
 }
 
+.suporte{
+    display: flex;
+    margin-right: 1600px;
+    margin-top: 50px;
+}

@@ -42,6 +42,8 @@
 
     <footer>
         <div class="footer">
+            <div class="suporte"><p>Suporte: JediSith@Skyriver.all</p>
+      </div>
             <p>2026 Kristhian Wirthl - Star Wars Fan Page - STAR WARS © 2026 & TM Lucasfilm Ltd. All rights Reserved</p>
         </div>
     </footer>
@@ -71,15 +73,10 @@
 
         function sair() {
             sessionStorage.clear();
-            window.location = "StarWars.html"
+            window.location = "../Pages/StarWars.html"
         }
 
         verificarlogin()
-
-        function sair() {
-            sessionStorage.clear();
-            window.location = "StarWars.html"
-        }
 
         function obterClassiKpi() {
             fetch(`/quiz/ranking`, { cache: 'no-store' }).then(function (response) {
