@@ -27,12 +27,18 @@ function implementar(req, res){
     
     
     function ranking(req, res){
-    
-        quizModel.trazerinformacoestotal(classificacao, pontuacao)
+
+
+        quizModel.trazerinformacoestotal()
             .then(
                 function (resultado) {
+                    console.log("cheguei no controller")
+                    console.log(JSON.stringify({
+                        resultado
+                    })
+                    )
                     res.json(resultado);
-                    console.log("Foi adicionado na dashboard");
+                    console.log("Foi adicionado no gráfico");
                 }
             ).catch(
                 function (erro) {
@@ -47,13 +53,14 @@ function implementar(req, res){
             );
     }  
     
-        function rankingindicla(req, res){
+        function rankingindi(req, res){
 
             var fkUsuarioInc = req.params.id
     
-        quizModel.rankingindicla('Youngling', fkUsuarioInc)
+        quizModel.rankingindi(fkUsuarioInc)
             .then(
                 function (resultado) {
+
                     res.json(resultado);
                     console.log("Foi adicionado na dashboard a classificação individual");
                 }
@@ -70,54 +77,9 @@ function implementar(req, res){
             );
     } 
 
-        function rankingindipontu(req, res){
-    
-        quizModel.rankingindipontu(pontuacao)
-            .then(
-                function (resultado) {
-                    res.json(resultado);
-                    console.log("Foi adicionado na dashboard a pontuação individual");
-                }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log("Não foi adicionado na dashboard a pontuação individual");   
-                    console.log(
-                        "\nHouve um erro ao adicionar na dashboard a pontuação individual! Erro: ",
-                        erro.sqlMessage
-                    );
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
-    } 
-
-           function rankingindinome(req, res){
-
-            var fkUsuarioInc = req.params.id
-    
-        quizModel.rankingindicla(nome, fkUsuarioInc)
-            .then(
-                function (resultado) {
-                    res.json(resultado);
-                    console.log("Foi adicionado na dashboard a classificação individual");
-                }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log("Não foi adicionado na dashboard a classificação individual");   
-                    console.log(
-                        "\nHouve um erro ao adicionar na dashboard a classificação individual! Erro: ",
-                        erro.sqlMessage
-                    );
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
-    } 
 
 module.exports = {
     implementar,
     ranking,
-    rankingindicla,
-    rankingindipontu,
-    rankingindinome
+    rankingindi
 }

@@ -8,7 +8,7 @@
 </head>
 <link rel="stylesheet" href="../Style/dashboard.css">
 
-<body onload="obterDadosGrafico()">
+<body onload="obterDadosGrafico();atualizarKPIs()">
     <header>
         <div class="container">
             <image src="../Images/Star Wars Logo.png" class="logo"></image>
@@ -24,19 +24,17 @@
             </nav>
         </div>
     </header>
-    <button onclick="chamarFunc()">Obter dados</button>
     <div class="dashboard">
         <div class="kpis-container">
-            <p id="kpi_nome" class="kpis">nome</p>
-            <!-- colocar 1 de pontuação e outro classificação  -->
-            <p id="kpi_classificacao" class="kpis">classificacao</p>
-            <p id="kpi_pontuacao" class="kpis">pontuacao</p>
+            <p id="kpi_nome" class="kpis"></p>
+            <p id="kpi_classificacao" class="kpis"></p>
+            <p id="kpi_pontuacao" class="kpis"></p>
         </div>
         <div class="grafico">
             <canvas id="Ranking"></canvas>
         </div>
     </div>
-
+    <div id="div_mensagem"></div>
 
 
     <audio id="musica" src="../Sounds/Copyright Free Star Wars Music - The Path of the Force.mp3" autoplay loop></audio>
@@ -52,10 +50,10 @@
     <script>
 
         var idusuario = sessionStorage.ID_USUARIO;
+        var nomeusuario = sessionStorage.NOME_USUARIO;
 
         function verificarlogin() {
 
-            var idusuario = sessionStorage.ID_USUARIO;
             console.log('teste', idusuario)
 
             var nav = document.getElementById("navss");
@@ -78,10 +76,13 @@
 
         verificarlogin()
 
+        function sair() {
+            sessionStorage.clear();
+            window.location = "StarWars.html"
+        }
 
-
-        function obterDadosGrafico() {
-            fetch(`/quiz/ranking/${idusuario}`, { cache: 'no-store' }).then(function (response) {
+        function obterClassiKpi() {
+            fetch(`/quiz/ranking`, { cache: 'no-store' }).then(function (response) {
                 if (response.ok) {
                     response.json().then(function (resposta) {
                         console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
@@ -90,7 +91,63 @@
                         plotarGrafico(resposta, id);
                         atualizarKPIs(resposta);
 
+
                     });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+                .catch(function (error) {
+                    console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+                });
+        }
+
+        function atualizarKPIs() {
+            fetch(`/quiz/ranking/${idusuario}`, { cache: 'no-store' }).then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+                        if (resposta.length > 0) {
+
+                            document.getElementById("kpi_nome").innerHTML = `${resposta[0].Nome}`;
+
+                            document.getElementById("kpi_classificacao").innerHTML = `${resposta[0].Classificação}`;
+
+                            document.getElementById("kpi_pontuacao").innerHTML = `${resposta[0].Pontuação}`
+                        } else {
+
+                            document.getElementById("kpi_nome").innerHTML = `${resposta[0].Nome}`;
+
+                            document.getElementById("kpi_classificacao").innerHTML = `---`;
+
+                            document.getElementById("kpi_pontuacao").innerHTML = `---`
+
+                        }
+
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+                .catch(function (error) {
+                    console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+                });
+        }
+
+        function obterDadosGrafico() {
+            fetch(`/quiz/ranking`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).then(function (response) {
+                console.log(response)
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        console.log('Dados do gráfico', resposta)
+                        plotarGrafico(resposta);
+                    })
                 } else {
                     console.error('Nenhum dado encontrado ou erro na API');
                 }
@@ -103,17 +160,42 @@
         function plotarGrafico(resposta) {
 
             console.log('iniciando plotagem do gráfico...');
-            let labels = [];
+
+            let ordemRanking = [
+                'Sem Midichlorianos',
+                'Youngling',
+                'Padawan',
+                'Cavaleiro Jedi',
+                'Mestre Jedi',
+                'Grão-Mestre Jedi'
+            ]
+
+            let graficoDados = {
+                labels: ordemRanking,
+                dados: []
+            }
+
+            let totalclassificacao = [];
+            let classificacaoatual = 0;
+            let totalfinal = [];
+
+            for (let i = 0; i < ordemRanking.length; i++) {
+                classificacaoatual = ordemRanking[i];
+                for (let j = 0; j < resposta.length; j++) {
+                    if (resposta[j].classificacao == classificacaoatual) {
+                        totalclassificacao = resposta[j].Total
+                    }
+                }
+                totalfinal.push(totalclassificacao);
+            }
 
             const ctx = document.getElementById('Ranking');
-    
-            labels = ['Sem Midichlorianos', 'Youngling', 'Padawan', 'Cavaleiro Jedi', 'Mestre Jedi', 'Grão-Mestre Jedi'];
+
             let data = {
-                labels: labels,
+                labels: graficoDados.labels,
                 datasets: [{
                     label: 'Quantidade de usuários por Ranking',
-                    // label: trazerinformaçõestotal(),
-                    data: lista,
+                    data: totalfinal,
                     backgroundColor: [
                         '#A9B4C2',
                         '#B2B3A2',
@@ -125,18 +207,22 @@
                     borderWidth: 2
                 }]
             }
-            
+
             new Chart(ctx, {
                 type: 'bar',
                 data: data,
                 options: {
                     scales: {
                         y: {
-                            beginAtZero: true
+                            beginAtZero: true,
+                            ticks: {
+                                stepSize: 1,
+                            }
                         }
                     }
                 }
             });
+
         }
 
 

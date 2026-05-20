@@ -12,7 +12,9 @@ router.get("/ranking", function (req, res) {
 });
 
 router.get("/ranking/:id", function (req, res) {
-    quizController.rankingindicla(req, res);
+    quizController.rankingindi(req, res);
 });
+
+
 
 module.exports = router;

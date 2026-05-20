@@ -14,9 +14,10 @@ CREATE TABLE usuario (
 );
 
 CREATE TABLE ranking (
+    idranking INT PRIMARY KEY AUTO_INCREMENT,
     classificacao VARCHAR(25),
     pontuacao INT,
-    fkusuario INT,
+    fkusuario INT UNIQUE,
     CONSTRAINT constusuario FOREIGN KEY (fkusuario) REFERENCES usuario(id)
 );
 
@@ -33,7 +34,7 @@ drop table usuario;
 
 SELECT usuario.nome AS Nome, ranking.classificacao AS Classificação, ranking.pontuacao AS Pontuação FROM usuario LEFT JOIN ranking ON usuario.id = ranking.fkusuario;
 
-SELECT COUNT(classificacao), classificacao FROM ranking group by classificacao;
+SELECT classificacao, COUNT(*) as Total FROM ranking GROUP BY classificacao;
 
 SELECT * FROM ranking;
 SET @fkusuario = 1;
