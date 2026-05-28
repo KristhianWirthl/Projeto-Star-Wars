@@ -14,10 +14,9 @@ CREATE TABLE usuario (
 );
 
 CREATE TABLE ranking (
-	idranking INT PRIMARY KEY AUTO_INCREMENT,
     classificacao VARCHAR(25),
     pontuacao INT,
-    fkusuario INT UNIQUE,
+    fkusuario INT,
     CONSTRAINT constusuario FOREIGN KEY (fkusuario) REFERENCES usuario(id)
 );
 
@@ -28,27 +27,10 @@ fkusuario INT,
 CONSTRAINT constusuarioapre FOREIGN KEY (fkusuario) REFERENCES usuario(id)
 );
 
-INSERT INTO ranking (idranking, classificacao) VALUES
-(DEFAUlt, 'Sem Midichlorians'),
-(DEFAUlt, 'Youngling'),
-(DEFAUlt, 'Padawan'),
-(DEFAUlt, 'Cavaleiro Jedi'),
-(DEFAUlt, 'Mestre Jedi'),
-(DEFAUlt, 'Grão-Mestre Jedi');
+SELECT COUNT(classificacao) FROM ranking group by classificacao;
 
-select * from usuario;	
+SELECT * FROM usuario;
 
-drop table usuario;
-
-SELECT usuario.nome AS Nome, ranking.classificacao AS Classificação, ranking.pontuacao AS Pontuação FROM usuario LEFT JOIN ranking ON usuario.id = ranking.fkusuario;
-
-SELECT classificacao,
-CASE WHEN COUNT(pontuacao) = 0
-THEN 0
-ELSE COUNT(pontuacao)
-END AS Total FROM ranking GROUP BY classificacao; 
-
-
-SELECT * FROM ranking;
-SET @fkusuario = 1;
- SELECT  pontuacao AS Pontuação, classificacao AS Classificação FROM ranking WHERE fkusuario = @fkusuario ORDER BY pontuacao DESC LIMIT 1;
+-- 1 pra 1
+-- 1 pra n
+-- essa 1 pra 1 eu falo que vou implementar nos proximos passos, e ta ok, n precisa realmente fazer a conexao, importante é o diagrama
