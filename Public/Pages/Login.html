@@ -95,7 +95,6 @@
     }
 
     function entrar() {
-        //aguardar();
 
         var emailVar = email_input.value;
         var senhaVar = senha_input.value;
@@ -103,11 +102,9 @@
         if (emailVar == "" || senhaVar == "") {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-            //finalizarAguardar();
             return false;
         }
         else {
-            //setInterval(sumirMensagem, 5000)
             console.log("Deu erro")
         }
 
@@ -139,7 +136,7 @@
                     limparFormulario();
                     setTimeout(function () {
                         window.location = "./Quiz.html";
-                    }, 1000); // apenas para exibir o loading
+                    }, 1000);
 
                 });
 
@@ -151,7 +148,6 @@
 
                 resposta.text().then(texto => {
                     console.error(texto);
-                    //finalizarAguardar(texto);
                 });
             }
 
@@ -161,11 +157,6 @@
 
         return false;
     }
-
-    // function sumirMensagem() {
-    //     cardErro.style.display = "none"
-    // }
-
 
 
     function validarusuariologado() {

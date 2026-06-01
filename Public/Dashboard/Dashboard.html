@@ -78,27 +78,6 @@
 
         verificarlogin()
 
-        function obterClassiKpi() {
-            fetch(`/quiz/ranking`, { cache: 'no-store' }).then(function (response) {
-                if (response.ok) {
-                    response.json().then(function (resposta) {
-                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-
-                        console.log(resposta[0].classificacao)
-                        plotarGrafico(resposta, id);
-                        atualizarKPIs(resposta);
-
-
-                    });
-                } else {
-                    console.error('Nenhum dado encontrado ou erro na API');
-                }
-            })
-                .catch(function (error) {
-                    console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-                });
-        }
-
         function atualizarKPIs() {
             fetch(`/quiz/ranking/${idusuario}`, { cache: 'no-store' }).then(function (response) {
                 if (response.ok) {

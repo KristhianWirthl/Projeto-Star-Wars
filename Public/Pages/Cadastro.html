@@ -108,8 +108,6 @@
 
     console.log("Chamei a função")
 
-    //Recupere o valor da nova input pelo nome do id
-    // Agora vá para o método fetch logo abaixo
     var nomeVar = nome_input.value;
     var idadeVar = idade_input.value;
     var planetaVar = planeta_origem_input.value;
@@ -121,7 +119,6 @@
 
     console.log(`Dados que vou capurar: ${nomeVar}, ${idadeVar}, ${planetaVar}, ${especieVar}, ${naveVar}, ${emailVar}, ${senhaVar}`)
 
-    // Verificando se há algum campo em branco
     if (
       nomeVar == "" ||
       idadeVar == "" ||
@@ -134,19 +131,13 @@
       confirmarSenhaVar == "" ||
       senhaVar != confirmarSenhaVar
     ) {
-      // cardErro.style.display = "block";
-      // mensagem_erro.innerHTML =
-      //   "(Alerta, robô detectado, por favor preencha corretamente)";
 
       console.log("Campos Vazios")
       limparFormulario();
       alert("Algum erro foi detectado!")
-      //finalizarAguardar();
-      //return false;
     } else {
 
 
-      // Enviando o valor da nova input
       fetch("/usuarios/cadastrar", {
         method: "POST",
         headers: {
@@ -175,14 +166,12 @@
             }, "2000");
 
             limparFormulario();
-            //finalizarAguardar();
           } else {
             throw "Houve um erro ao tentar realizar o cadastro!";
           }
         })
         .catch(function (resposta) {
           console.log(`#ERRO: ${resposta}`);
-          //finalizarAguardar();
         });
 
       return false;
